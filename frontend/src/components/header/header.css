@@ -1,0 +1,160 @@
+header {
+  display: flex;
+  position: sticky;
+  top: 0px;
+  z-index: 1000;
+  min-height: 5vh;
+}
+.header-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background-color: #fff;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0 -6px 10px 5px rgba(0, 0, 0, 0.5);
+}
+.header-left {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 0 10px;
+}
+.header-left > a > img {
+  width: 150px;
+  object-fit: contain;
+  margin-top: 8px;
+  padding: 3px;
+  cursor: pointer;
+}
+.header-left > h3 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 300;
+  font-size: 12px;
+  color: #929292;
+  margin: 0 10px;
+  cursor: pointer;
+  padding: 8px 15px;
+}
+.header-left > h3:hover {
+  background-color: rgb(212, 212, 212);
+  border-radius: 5px;
+}
+
+.header-mid {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.header-search-container {
+  width: 700px;
+  display: flex;
+  padding: 5px 5px;
+  background-color: #fff;
+  border: 1px solid #d2d2d2;
+  border-radius: 4px;
+}
+.header-search-container > input {
+  width: 100%;
+  border: none;
+  outline: none;
+  margin-left: 5px;
+  font-size: 13px;
+}
+.header-search-container > .MuiSvgIcon-root {
+  color: #ccc;
+}
+
+.search-dropdown {
+  position: absolute;
+  top: calc(100% + 4px); /* Adjust the offset as needed */
+  left: 28%;
+  z-index: 1;
+  border: 1px solid #ccc;
+  max-height: 200px;
+  overflow-y: auto;
+  width: 630px;
+  padding: 5px 5px;
+  background-color: #fff;
+  border-radius: 4px;
+}
+
+.search-dropdown div {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.search-dropdown div:hover {
+  background-color: #f1f1f1;
+}
+
+.header-right {
+  /* width: 300px; */
+  display: flex;
+  align-items: center;
+}
+
+.header-right-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.header-right-container > button {
+  margin: 5px;
+}
+.header-right-container > span {
+  width: 40px;
+  margin: 5px;
+  font-family: "Times New Roman", Times, serif;
+}
+@media screen and (max-width: 768px) {
+  .header-mid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .header-search-container {
+    width: 100px;
+    display: flex;
+    padding: 5px 5px;
+    background-color: #fff;
+    border: 1px solid #d2d2d2;
+    border-radius: 4px;
+  }
+  .header-search-container > input {
+    width: 100%;
+    border: none;
+    outline: none;
+    margin-left: 5px;
+    font-size: 13px;
+  }
+  .header-search-container > .MuiSvgIcon-root {
+    color: #ccc;
+  }
+  .header-right-container > button {
+    margin: 2px;
+    width: 80px;
+  }
+  .header-left > h3 {
+    display: none;
+  }
+  .header-left > img {
+    width: 120px;
+    object-fit: contain;
+    padding: 0;
+    cursor: pointer;
+  }
+}
+@media screen and (min-width: 600px) {
+  .header-mid {
+    width: calc(20 * 2vw);
+  }
+
+  .header-search-container {
+    width: 100%;
+  }
+}

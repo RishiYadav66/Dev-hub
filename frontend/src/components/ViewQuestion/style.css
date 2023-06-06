@@ -1,0 +1,117 @@
+.main-box {
+  display: flex;
+  /* max-width: 700px; */
+  padding: 30px 10px;
+  flex: 0.75;
+  flex-direction: column;
+}
+
+.main-container-box {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.main-top-box {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.main-question-box {
+  display: flex;
+  justify-items: center;
+  padding-bottom: 30px;
+  align-items: center;
+  justify-content: space-between;
+}
+.main-question-box > h2 {
+  display: flex;
+  width: 80%;
+}
+.main-desc-box {
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  font-size: small;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  padding-right: 5px;
+  font-size: small;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.info > p {
+  color: rgba(0, 0, 0, 0.4);
+  margin: 0 10px;
+}
+
+.info > p > span {
+  color: rgba(0, 0, 0, 0.8);
+  margin: 0 5px;
+}
+
+.arrow {
+  cursor: pointer;
+  font-size: 2rem;
+  color: rgba(0, 0, 0, 0.25);
+}
+
+.all-options > .MuiSvgIcon-root {
+  color: rgba(0, 0, 0, 0.25);
+  font-size: large;
+  margin: 5px 0;
+}
+
+/* .ql-syntax {
+  display: flex;
+  width: 90%;
+  overflow: hidden;
+} */
+pre {
+  display: flex;
+  width: 90px;
+  flex-wrap: wrap;
+}
+
+.comments {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+  width: 90%;
+  margin-left: auto;
+}
+
+.comment {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.comment > p {
+  margin: 10px 0;
+}
+.comment > p > span {
+  background-color: #0151f028;
+  color: #0151f0d8;
+  border-radius: 2px;
+}
+.comments > p {
+  margin-top: 20px;
+  margin-left: -35px;
+  font-size: small;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.4);
+}

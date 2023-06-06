@@ -1,0 +1,96 @@
+.add-question {
+  display: flex;
+  height: 90vh;
+  background-color: rgba(238, 238, 238, 0.568);
+  justify-content: center;
+  width: 100%;
+}
+
+.add-question-container {
+  padding: 8px 15px;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  max-width: 800px;
+}
+
+.question-title {
+  display: flex;
+  width: 100%;
+}
+.question-title > h1 {
+  margin-bottom: 10px;
+  font-weight: 500;
+  font-size: 26px;
+}
+
+.question-container {
+  display: flex;
+  padding: 15px;
+  margin-top: 10px;
+  background-color: #fff;
+  border: 1px solid #eee;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(66, 42, 42, 0.19);
+}
+
+.question-options {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.question-option {
+  flex-direction: column;
+  width: 100%;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0px;
+  font-size: 0.9rem;
+}
+.title > h3 {
+  color: rgba(0, 0, 0, 0.8);
+  font-weight: 500;
+}
+
+.title > small {
+  font-weight: 25s0;
+  color: rgb(180, 180, 180);
+}
+
+.title > input {
+  margin: 5px 0px;
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  outline: none;
+}
+
+.title > input::placeholder {
+  color: #ddd;
+}
+.title > input:focus {
+  border: 1px solid #0054ff;
+  box-shadow: 0 4px 8px 0 #0055ff23, 0 6px 20px 0 #0055ff11;
+}
+
+.quill {
+  height: 100%;
+}
+
+.react-quill {
+  margin: 10px 0;
+  border-radius: 10px;
+}
+
+.ql-editor {
+  height: 160px;
+}
+
+Button {
+  /* margin: 5px; */
+  max-width: fit-content;
+}
