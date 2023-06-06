@@ -7,9 +7,9 @@ import {
   Outlet,
   Navigate,
 } from "react-router-dom";
-import Stackoverflow from "./components/Stackoverflow/Index";
+
 import Question from "./components/Add-Question/Question";
-import ViewQuestion from "../src/components/ViewQuestion";
+import Ind from "./components/ViewQuestion/Ind";
 import Auth from "./components/Auth/Index";
 import { useSelector } from "react-redux";
 import { login, logout, selectUser } from "./features/userSlice";
@@ -51,14 +51,14 @@ function App() {
         <Routes>
           <Route
             path={user ? "/" : "/"}
-            element={user ? <Stackoverflow /> : <Auth />}
+            element={user ? <Index /> : <Auth />}
           />
           <Route path="/auth" element={<Auth />} />
           <Route element={<PrivateRoute />}>
             <Route path="/add-question" element={<Question />} />
             <Route path="/update-question" element={<QuestionEdit />} />
             <Route path="/" element={<Index />} />
-            <Route path="/view-question" element={<ViewQuestion />} />
+            <Route path="/view-question" element={<Ind />} />
           </Route>
         </Routes>
       </BrowserRouter>
