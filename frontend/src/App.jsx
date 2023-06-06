@@ -7,7 +7,7 @@ import {
   Outlet,
   Navigate,
 } from "react-router-dom";
-import Stackoverflow from "./components/Stackoverflow";
+import Stackoverflow from "../src/components/Stackoverflow";
 import Question from "./components/Add-Question/Question";
 import ViewQuestion from "../src/components/ViewQuestion";
 import Auth from "./components/Auth/Index";
