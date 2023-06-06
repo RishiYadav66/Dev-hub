@@ -7,7 +7,7 @@ import {
   Outlet,
   Navigate,
 } from "react-router-dom";
-import Stackoverflow from "../src/components/Stackoverflow";
+import Stackoverflow from "./components/Stackoverflow/Index";
 import Question from "./components/Add-Question/Question";
 import ViewQuestion from "../src/components/ViewQuestion";
 import Auth from "./components/Auth/Index";
@@ -18,6 +18,7 @@ import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { auth } from "./firebase";
 import QuestionEdit from "./components/Add-Question/QuestionEdit";
+import Index from "./components/Stackoverflow/Index";
 function App() {
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
@@ -56,7 +57,7 @@ function App() {
           <Route element={<PrivateRoute />}>
             <Route path="/add-question" element={<Question />} />
             <Route path="/update-question" element={<QuestionEdit />} />
-            <Route path="/" element={<Stackoverflow />} />
+            <Route path="/" element={<Index />} />
             <Route path="/view-question" element={<ViewQuestion />} />
           </Route>
         </Routes>
