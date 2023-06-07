@@ -14,6 +14,7 @@ import { useSelector } from "react-redux";
 import { selectUser } from "../../features/userSlice";
 const MainQuestion = () => {
   const location = useLocation();
+  const BASE_URL = process.env.BASE_URL;
   let search = location.search;
   const params = new URLSearchParams(search);
   const id = params.get("q");
@@ -79,7 +80,7 @@ const MainQuestion = () => {
   const deletequestion = async () => {
     // console.alert("Are you sure you want to delete");
     await axios
-      .delete(`/https://devhub-backend-mnpr.onrender.com/question/${id}`)
+      .delete(`/${BASE_URL}/question/${id}`)
       .then((res) => {
         console.log(res.data);
         getUpdatedAnswers();
@@ -100,7 +101,7 @@ const MainQuestion = () => {
       };
 
       await axios
-        .post(`/https://devhub-backend-mnpr.onrender.com/comment/${id}`, body)
+        .post(`/${BASE_URL}/comment/${id}`, body)
         .then((res) => {
           console.log(res.data);
           setcomment("");
@@ -115,7 +116,7 @@ const MainQuestion = () => {
 
   async function getUpdatedAnswers() {
     await axios
-      .get(`/https://devhub-backend-mnpr.onrender.com/question/${id}`)
+      .get(`/${BASE_URL}/question/${id}`)
       .then((res) => {
         console.log(res.data[0]);
         setQuestionData(res.data[0]);
@@ -139,7 +140,7 @@ const MainQuestion = () => {
       };
 
       await axios
-        .post("/https://devhub-backend-mnpr.onrender.com/answer", body, config)
+        .post(`/${BASE_URL}/answer`, body, config)
         .then((res) => {
           console.log(res.data);
           alert("Answer added successfully");
@@ -154,7 +155,7 @@ const MainQuestion = () => {
   useEffect(() => {
     async function getQuestionDetails() {
       await axios
-        .get(`/https://devhub-backend-mnpr.onrender.com/question/${id}`)
+        .get(`/${BASE_URL}/question/${id}`)
         .then((res) => {
           console.log(res.data[0]);
           setQuestionData(res.data[0]);

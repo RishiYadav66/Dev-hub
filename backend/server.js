@@ -6,6 +6,7 @@ const router = require("./routers");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 require('dotenv').config();
+const BASE_URL = process.env.BASE_URL;
 const PORT = process.env.PORT || 3000;
 const DATABASE = process.env.MONGODB_URI;
 
@@ -39,7 +40,7 @@ app.use((req, res, next) => {
 });
 
 // API
-app.use('https://devhub-backend-mnpr.onrender.com', router);
+app.use(`${BASE_URL}`, router);
 
 // Static resources
 app.use(express.static(path.join(__dirname, "/../frontend/dist")));
@@ -62,4 +63,4 @@ app.use(cors());
 app.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`);
 });
- // "start": "nodemon --watch backend --exec node backend/server.js"
+// "start": "nodemon --watch backend --exec node backend/server.js"
