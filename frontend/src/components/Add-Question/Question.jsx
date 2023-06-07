@@ -80,9 +80,8 @@ function Question() {
         user: user,
       };
       await axios
-        .post("/api/question", bodyJSON)
+        .post("/https://devhub-backend-mnpr.onrender.com/question", bodyJSON)
         .then((res) => {
-          // console.log(res.data);
           alert("Question added successfully");
           setloading(false);
           navigate("/");
@@ -139,23 +138,12 @@ function Question() {
                 <small>
                   Add up to 5 tags to describe what your question is about
                 </small>
-                {/* <input
-                  value={tag}
-                  onChange={(e) => setTag(e.target.value)}
-                  data-role="tagsinput"
-                  data-tag-trigger="Space"
-                  type="text"
-                  placeholder="e.g. (asp.net-mvc php react json)"
-                /> */}
-
                 <TagsInput
                   value={tags}
                   onChange={setTags}
                   name="fruits"
                   placeHolder="press enter to add new tag"
                 />
-
-                {/* <ChipsArray /> */}
               </div>
             </div>
           </div>

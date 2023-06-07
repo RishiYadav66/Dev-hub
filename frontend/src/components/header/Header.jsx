@@ -47,10 +47,6 @@ const Header = () => {
     }
   };
 
-  // useEffect(() => {
-  //   setFilteredQuestions([]); // Reset filteredQuestions when the user navigates to a different page
-  // }, [location]);
-
   return (
     <header>
       <div className="header-container">

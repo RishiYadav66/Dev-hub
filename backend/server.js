@@ -33,13 +33,13 @@ app.use(express.json());
 
 // CORS headers
 app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', 'https://dev-central.netlify.app');
+    res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers', '*');
     next();
 });
 
 // API
-app.use('/api', router);
+app.use('https://devhub-backend-mnpr.onrender.com', router);
 
 // Static resources
 app.use(express.static(path.join(__dirname, "/../frontend/dist")));
