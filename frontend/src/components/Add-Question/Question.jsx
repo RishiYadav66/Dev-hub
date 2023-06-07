@@ -11,7 +11,6 @@ import { selectUser } from "../../features/userSlice";
 import axios from "axios";
 
 function Question() {
-  const BASE_URL = process.env.BASE_URL;
   var toolbarOptions = [
     ["bold", "italic", "underline", "strike"], // toggled buttons
     ["blockquote", "code-block"],
@@ -81,7 +80,7 @@ function Question() {
         user: user,
       };
       await axios
-        .post(`/${BASE_URL}/question`, bodyJSON)
+        .post("/api/question", bodyJSON)
         .then((res) => {
           // console.log(res.data);
           alert("Question added successfully");

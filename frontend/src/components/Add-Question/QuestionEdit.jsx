@@ -9,7 +9,6 @@ import "./question.css";
 import { Button } from "@mui/material";
 
 function QuestionEdit() {
-  const BASE_URL = process.env.BASE_URL;
   var toolbarOptions = [
     ["bold", "italic", "underline", "strike"], // toggled buttons
     ["blockquote", "code-block"],
@@ -71,7 +70,7 @@ function QuestionEdit() {
   useEffect(() => {
     async function fetchQuestionData() {
       await axios
-        .get(`/${BASE_URL}/question/${id}`)
+        .get(`/api/question/${id}`)
         .then((res) => {
           const questionData = res.data[0];
           setTitle(questionData.title);
@@ -107,7 +106,7 @@ function QuestionEdit() {
 
     // Send the updated question data to the server
     await axios
-      .put(`/${BASE_URL}/question/${id}`, updatedQuestion)
+      .put(`/api/question/${id}`, updatedQuestion)
       .then((res) => {
         console.log(res.data);
         alert("Question updated successfully");

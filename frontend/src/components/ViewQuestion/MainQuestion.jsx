@@ -14,7 +14,6 @@ import { useSelector } from "react-redux";
 import { selectUser } from "../../features/userSlice";
 const MainQuestion = () => {
   const location = useLocation();
-  const BASE_URL = process.env.BASE_URL;
   let search = location.search;
   const params = new URLSearchParams(search);
   const id = params.get("q");
@@ -80,7 +79,7 @@ const MainQuestion = () => {
   const deletequestion = async () => {
     // console.alert("Are you sure you want to delete");
     await axios
-      .delete(`/${BASE_URL}/question/${id}`)
+      .delete(`/api/question/${id}`)
       .then((res) => {
         console.log(res.data);
         getUpdatedAnswers();
@@ -101,7 +100,7 @@ const MainQuestion = () => {
       };
 
       await axios
-        .post(`/${BASE_URL}/comment/${id}`, body)
+        .post(`/api/comment/${id}`, body)
         .then((res) => {
           console.log(res.data);
           setcomment("");
@@ -116,7 +115,7 @@ const MainQuestion = () => {
 
   async function getUpdatedAnswers() {
     await axios
-      .get(`/${BASE_URL}/question/${id}`)
+      .get(`/api/question/${id}`)
       .then((res) => {
         console.log(res.data[0]);
         setQuestionData(res.data[0]);
@@ -140,7 +139,7 @@ const MainQuestion = () => {
       };
 
       await axios
-        .post(`/${BASE_URL}/answer`, body, config)
+        .post("/api/answer", body, config)
         .then((res) => {
           console.log(res.data);
           alert("Answer added successfully");
@@ -155,7 +154,7 @@ const MainQuestion = () => {
   useEffect(() => {
     async function getQuestionDetails() {
       await axios
-        .get(`/${BASE_URL}/question/${id}`)
+        .get(`/api/question/${id}`)
         .then((res) => {
           console.log(res.data[0]);
           setQuestionData(res.data[0]);

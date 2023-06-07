@@ -7,14 +7,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { setQuestions } from "../../features/questionsSlice";
 
 const Index = () => {
-  const BASE_URL = process.env.BASE_URL;
   const dispatch = useDispatch();
   const questions = useSelector((state) => state.questions);
 
   useEffect(() => {
     async function getQuestion() {
       try {
-        const response = await axios.get(`/${BASE_URL}/question`);
+        const response = await axios.get(`/api/question`);
         console.log(response.data);
         dispatch(setQuestions(response.data.reverse()));
       } catch (error) {
