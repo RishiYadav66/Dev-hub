@@ -8,6 +8,7 @@ const mongoose = require("mongoose");
 require('dotenv').config();
 const PORT = process.env.PORT || 3000;
 const DATABASE = process.env.MONGODB_URI;
+const BASE_URL = process.env.BASE_URL || 'http://localhost:3000';
 
 mongoose.connect(DATABASE, {
     useNewUrlParser: true,
@@ -33,13 +34,13 @@ app.use(express.json());
 
 // CORS headers
 app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Origin', `https://dev-central.netlify.app/`);
     res.header('Access-Control-Allow-Headers', '*');
     next();
 });
 
 // API
-app.use('/api', router);
+app.use(`${BASE_URL}/api`, router);
 
 // Static resources
 app.use(express.static(path.join(__dirname, "/../frontend/dist")));
