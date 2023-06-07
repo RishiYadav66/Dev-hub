@@ -4,15 +4,17 @@ const path = require("path");
 const app = express();
 const router = require("./routers");
 const bodyParser = require("body-parser");
-const { default: mongoose } = require("mongoose");
+const mongoose = require("mongoose");
+require('dotenv').config();
 const PORT = process.env.PORT || 3000;
+const DATABASE = process.env.MONGODB_URI;
 
-// DB connection
-mongoose.connect("mongodb+srv://rishiyadav2910:rishiyadav4966@cluster0.jr1edb1.mongodb.net/stack-overflow?retryWrites=true&w=majority", {
+mongoose.connect(DATABASE, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     dbName: "stack-overflow",
 });
+
 const db = mongoose.connection;
 db.once("open", () => {
     try
