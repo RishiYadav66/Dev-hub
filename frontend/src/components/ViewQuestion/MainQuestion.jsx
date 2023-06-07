@@ -79,7 +79,7 @@ const MainQuestion = () => {
   const deletequestion = async () => {
     // console.alert("Are you sure you want to delete");
     await axios
-      .delete(`/api/question/${id}`)
+      .delete(`https://devhub-l2tc.onrender.com/api/question/${id}`)
       .then((res) => {
         console.log(res.data);
         getUpdatedAnswers();
@@ -100,7 +100,7 @@ const MainQuestion = () => {
       };
 
       await axios
-        .post(`/api/comment/${id}`, body)
+        .post(`https://devhub-l2tc.onrender.com/api/comment/${id}`, body)
         .then((res) => {
           console.log(res.data);
           setcomment("");
@@ -115,7 +115,7 @@ const MainQuestion = () => {
 
   async function getUpdatedAnswers() {
     await axios
-      .get(`/api/question/${id}`)
+      .get(`https://devhub-l2tc.onrender.com/api/question/${id}`)
       .then((res) => {
         console.log(res.data[0]);
         setQuestionData(res.data[0]);
@@ -139,7 +139,7 @@ const MainQuestion = () => {
       };
 
       await axios
-        .post("/api/answer", body, config)
+        .post("https://devhub-l2tc.onrender.com/api/answer", body, config)
         .then((res) => {
           console.log(res.data);
           alert("Answer added successfully");
@@ -154,7 +154,7 @@ const MainQuestion = () => {
   useEffect(() => {
     async function getQuestionDetails() {
       await axios
-        .get(`/api/question/${id}`)
+        .get(`https://devhub-l2tc.onrender.com/api/question/${id}`)
         .then((res) => {
           console.log(res.data[0]);
           setQuestionData(res.data[0]);

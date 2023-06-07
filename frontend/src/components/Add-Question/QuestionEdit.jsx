@@ -70,7 +70,7 @@ function QuestionEdit() {
   useEffect(() => {
     async function fetchQuestionData() {
       await axios
-        .get(`/api/question/${id}`)
+        .get(`https://devhub-l2tc.onrender.com/api/question/${id}`)
         .then((res) => {
           const questionData = res.data[0];
           setTitle(questionData.title);
@@ -106,7 +106,10 @@ function QuestionEdit() {
 
     // Send the updated question data to the server
     await axios
-      .put(`/api/question/${id}`, updatedQuestion)
+      .put(
+        `https://devhub-l2tc.onrender.com/api/question/${id}`,
+        updatedQuestion
+      )
       .then((res) => {
         console.log(res.data);
         alert("Question updated successfully");

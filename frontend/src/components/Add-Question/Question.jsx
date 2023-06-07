@@ -80,7 +80,7 @@ function Question() {
         user: user,
       };
       await axios
-        .post("/api/question", bodyJSON)
+        .post("https://devhub-l2tc.onrender.com/api/question", bodyJSON)
         .then((res) => {
           // console.log(res.data);
           alert("Question added successfully");

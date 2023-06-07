@@ -47,7 +47,7 @@ app.use(express.static(path.join(__dirname, "/../frontend/dist")));
 app.get('*', (req, res) => {
     try
     {
-        res.sendFile(path.join(__dirname, "/../frontend/dist/index.html"));
+        res.sendFile(path.join(`${__dirname}/../frontend/dist/index.html`));
     } catch (e)
     {
         res.send("Error Occurred");

@@ -13,7 +13,9 @@ const Index = () => {
   useEffect(() => {
     async function getQuestion() {
       try {
-        const response = await axios.get(`/api/question`);
+        const response = await axios.get(
+          `https://devhub-l2tc.onrender.com/api/question`
+        );
         console.log(response.data);
         dispatch(setQuestions(response.data.reverse()));
       } catch (error) {
