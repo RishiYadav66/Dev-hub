@@ -57,7 +57,11 @@ app.get('*', (req, res) => {
 
 
 // CORS
-app.use(cors());
+app.use(cors({
+    origin: "https://dev-central.netlify.app",
+    allowedHeaders: "*",
+}));
+
 
 // Server listen
 app.listen(PORT, () => {
