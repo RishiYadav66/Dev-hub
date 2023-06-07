@@ -62,3 +62,4 @@ app.use(cors());
 app.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`);
 });
+ // "start": "nodemon --watch backend --exec node backend/server.js"
