@@ -33,7 +33,7 @@ app.use(express.json());
 
 // CORS headers
 app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Origin', 'https://dev-central.netlify.app');
     res.header('Access-Control-Allow-Headers', '*');
     next();
 });
@@ -47,7 +47,7 @@ app.use(express.static(path.join(__dirname, "/../frontend/dist")));
 app.get('*', (req, res) => {
     try
     {
-        res.sendFile(path.join(`${__dirname}/../frontend/dist/index.html`));
+        res.sendFile(path.join(__dirname, "/../frontend/dist/index.html"));
     } catch (e)
     {
         res.send("Error Occurred");
