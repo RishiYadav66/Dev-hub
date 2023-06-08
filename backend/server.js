@@ -33,8 +33,9 @@ app.use(express.json());
 
 // CORS headers
 app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', 'https://dev-central.netlify.app');
-    res.header('Access-Control-Allow-Headers', '*');
+    res.header("Access-Control-Allow-Origin", "https://dev-central.netlify.app");
+    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE"); // Include the DELETE method
+    res.header("Access-Control-Allow-Headers", "*");
     next();
 });
 
@@ -42,18 +43,18 @@ app.use((req, res, next) => {
 app.use('/api', router);
 
 // Static resources
-// app.use(express.static(path.join(__dirname, "/../frontend/dist")));
+app.use(express.static(path.join(__dirname, "/../frontend/dist")));
 
-// app.get('*', (req, res) => {
-//     try
-//     {
-//         res.sendFile(path.join(`${__dirname}/../frontend/dist/index.html`));
-//     } catch (e)
-//     {
-//         res.send("Error Occurred");
-//     }
-// });
-// console.log(`${__dirname}/../frontend/dist/index.html`)
+app.get('*', (req, res) => {
+    try
+    {
+        res.sendFile(path.join(`${__dirname}/../frontend/dist/index.html`));
+    } catch (e)
+    {
+        res.send("Error Occurred");
+    }
+});
+
 
 // CORS
 app.use(cors());
