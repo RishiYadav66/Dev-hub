@@ -42,18 +42,18 @@ app.use((req, res, next) => {
 app.use('/api', router);
 
 // Static resources
-app.use(express.static(path.join(__dirname, "/../frontend/dist")));
+// app.use(express.static(path.join(__dirname, "/../frontend/dist")));
 
-app.get('*', (req, res) => {
-    try
-    {
-        res.sendFile(path.join(`${__dirname}/../frontend/dist/index.html`));
-    } catch (e)
-    {
-        res.send("Error Occurred");
-    }
-});
-
+// app.get('*', (req, res) => {
+//     try
+//     {
+//         res.sendFile(path.join(`${__dirname}/../frontend/dist/index.html`));
+//     } catch (e)
+//     {
+//         res.send("Error Occurred");
+//     }
+// });
+// console.log(`${__dirname}/../frontend/dist/index.html`)
 
 // CORS
 app.use(cors());
