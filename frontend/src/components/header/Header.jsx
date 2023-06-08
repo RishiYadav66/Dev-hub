@@ -56,52 +56,59 @@ const Header = () => {
           </Link>
         </div>
         <div className="header-mid">
-          <div className="header-search-container">
-            <SearchIcon />
-            <input
-              type="text"
-              placeholder="Search..."
-              value={searchQuery}
-              onChange={handleSearchInputChange}
-              onKeyPress={handleSearchInputKeyPress}
-            />
-          </div>
-          {showDropdown && filteredQuestions.length > 0 && (
-            <div className="search-dropdown">
-              {filteredQuestions.map((question) => (
-                <div
-                  key={question._id}
-                  onClick={() => handleQuestionClick(question)}
-                >
-                  {question.title}
+          {user && user.uid === user?.uid && (
+            <>
+              <div className="header-search-container">
+                <SearchIcon />
+                <input
+                  type="text"
+                  placeholder="Search..."
+                  value={searchQuery}
+                  onChange={handleSearchInputChange}
+                  onKeyPress={handleSearchInputKeyPress}
+                />
+              </div>
+              {showDropdown && filteredQuestions.length > 0 && (
+                <div className="search-dropdown">
+                  {filteredQuestions.map((question) => (
+                    <div
+                      key={question._id}
+                      onClick={() => handleQuestionClick(question)}
+                    >
+                      {question.title}
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
+              )}
+            </>
           )}
         </div>
-        <div className="header-right">
-          <div className="header-right-container">
-            <h4 style={{ margin: "8px", fontSize: "15px" }}>
-              Hi!{" "}
-              <span
-                style={{
-                  color: "#0151f0d8",
-                  fontWeight: "500",
-                  fontSize: "15px",
-                }}
+        {user && user.uid === user?.uid && (
+          <div className="header-right">
+            <div className="header-right-container">
+              <h4 style={{ margin: "8px", fontSize: "15px" }}>
+                Hi!{" "}
+                <span
+                  style={{
+                    color: "#0151f0d8",
+                    fontWeight: "500",
+                    fontSize: "15px",
+                  }}
+                >
+                  {user ? (user.displayName ? user.displayName : "User") : ""}
+                </span>
+              </h4>
+
+              <Button
+                onClick={() => auth.signOut()}
+                size="small"
+                variant="contained"
               >
-                {user ? (user.displayName ? user.displayName : "User") : ""}
-              </span>
-            </h4>
-            <Button
-              onClick={() => auth.signOut()}
-              size="small"
-              variant="contained"
-            >
-              Log Out
-            </Button>
+                Log Out
+              </Button>
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </header>
   );

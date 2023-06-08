@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@mui/material";
 import { FilterList } from "@mui/icons-material";
@@ -6,32 +6,36 @@ import Allquestions from "./Allquestions";
 
 const Main = ({ questions }) => {
   const [sortOption, setSortOption] = useState("newest");
+  const [sortedQuestions, setSortedQuestions] = useState([]);
+
+  useEffect(() => {
+    const sortQuestions = (option) => {
+      if (option === "newest") {
+        return [...questions].sort(
+          (a, b) => new Date(b.created_at) - new Date(a.created_at)
+        );
+      } else if (option === "oldest") {
+        return [...questions].sort(
+          (a, b) => new Date(a.created_at) - new Date(b.created_at)
+        );
+      } else {
+        return questions;
+      }
+    };
+
+    const sortedArray = sortQuestions(sortOption);
+    setSortedQuestions(sortedArray);
+  }, [questions, sortOption]);
 
   const handleSortOptionChange = (option) => {
     setSortOption(option);
   };
 
-  const sortQuestions = (option) => {
-    if (option === "newest") {
-      return [...questions].sort(
-        (a, b) => new Date(b.created_at) - new Date(a.created_at)
-      );
-    } else if (option === "oldest") {
-      return [...questions].sort(
-        (a, b) => new Date(a.created_at) - new Date(b.created_at)
-      );
-    } else {
-      return questions;
-    }
-  };
-
-  const sortedQuestions = sortQuestions(sortOption);
-
   return (
     <div className="main">
       <div className="main-container">
         <div className="main-top">
-          <h2>All Questions </h2>
+          <h2>All Questions</h2>
           <Link to="/add-question">
             <Button size="small" variant="contained">
               Ask Question
@@ -74,9 +78,9 @@ const Main = ({ questions }) => {
         </div>
       </div>
       <div className="questions">
-        {sortedQuestions.map((e, key) => (
+        {sortedQuestions.map((question, key) => (
           <div key={key} className="question">
-            <Allquestions question={e} />
+            <Allquestions question={question} />
           </div>
         ))}
       </div>
