@@ -76,18 +76,24 @@ const MainQuestion = () => {
     setanswer(value);
   };
 
-  const deletequestion = async () => {
-    // console.alert("Are you sure you want to delete");
-    await axios
-      .delete(`https://devhub-l2tc.onrender.com/api/question/${id}`)
-      .then((res) => {
-        console.log(res.data);
-        getUpdatedAnswers();
-        nav("/");
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+  const deleteQuestion = async () => {
+    const confirmDelete = window.confirm("Are you sure you want to delete?");
+
+    if (!confirmDelete) {
+      return; // Exit if the user cancels the deletion
+    }
+
+    try {
+      const response = await axios.delete(
+        `https://devhub-l2tc.onrender.com/api/question/${id}`
+      );
+      console.log(response.data);
+      getUpdatedAnswers();
+      nav("/");
+    } catch (error) {
+      console.error(error);
+      // Handle the error appropriately (e.g., show an error message to the user)
+    }
   };
 
   const [comment, setcomment] = useState("");
@@ -199,7 +205,7 @@ const MainQuestion = () => {
                 <DeleteIcon
                   className="icon"
                   style={{ display: "flex" }}
-                  onClick={deletequestion}
+                  onClick={deleteQuestion}
                 />
               )}
             </div>
